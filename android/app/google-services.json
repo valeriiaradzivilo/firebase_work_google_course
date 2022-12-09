@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1035277382998",
+    "project_id": "flutter-corse-f0bb8",
+    "storage_bucket": "flutter-corse-f0bb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035277382998:android:23fa684ba67c08d18912f7",
+        "android_client_info": {
+          "package_name": "com.example.firebase_work_google_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035277382998-8037e99kqpemsldd5k5nh9rnf9eh7efj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlmRPufg6VoA6OOIQQWUQfQ84fxKiqeM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035277382998-8037e99kqpemsldd5k5nh9rnf9eh7efj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
