@@ -6,13 +6,24 @@ class MessagesList
 {
   List<Message> messagesList = [];
 
-  Future<void> getMessages() async
+  Future<void> getMessages(String fromName) async
   {
-    CollectionReference messages = FirebaseFirestore.instance.collection('messages');
-    var querySnapshot = await messages.get();
-    for (var queryDocumentSnapshot in querySnapshot.docs) {
-      messagesList.add(Message(queryDocumentSnapshot.data["fromName"]=="Sanyok", message))
+    final CollectionReference usersCollection = FirebaseFirestore.instance.collection('messages');
+    QuerySnapshot querySnapshot = await usersCollection.get();
+    List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+    for (QueryDocumentSnapshot document in documents) {
+      Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+      if(data['fromName']==fromName){
+        print("${data['fromName']} - ${data['messageText']}");
+        messagesList.add(Message(false,data['messageText']));
+      }
     }
+
+  }
+
+  List<Message> getMessageList ()
+  {
+    return messagesList;
   }
 
 
