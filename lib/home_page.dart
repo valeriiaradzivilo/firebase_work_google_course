@@ -19,9 +19,16 @@ class _MyHomePageState extends State<MyHomePage> {
   MessagesList messagesList = MessagesList();
 
 
+  Future<void> loadMessages() async
+  {
+    await messagesList.getMessages("Lerok");
+    messagesForUser = messagesList.getMessageList();
+    print("loading complete");
+  }
+
   @override
   void initState() {
-    messagesList.getMessages("Lerok");
+    loadMessages();
     super.initState();
   }
   @override
@@ -36,18 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(20.0),
                     child: SizedBox(
                       height: 540,
-                      child: ListView(
-                        children: [
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                          Text("1"),
-                        ],
+                      child: ListView.builder(
+                        itemBuilder: (BuildContext context, int index) {
+                        return Text(messagesForUser.elementAt(index).message);
+                      },
+                        itemCount: messagesForUser.length,
+
                       ),
                     ),
                   ),
